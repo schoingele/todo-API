@@ -1,8 +1,4 @@
-
-const tarefas = [
-  { id: 1, titulo: "Estudar Node", descricao: "Praticar REST APIs", status: "pendente", usuarioId: 1 },
-  { id: 2, titulo: "Fazer compras", descricao: "Comprar itens do mês", status: "concluída", usuarioId: 2 }
-];
+let { tarefas } = require('./usuarioController')
 
 exports.listarTarefas = (req, res) => {
   res.json(tarefas);
@@ -52,3 +48,19 @@ exports.marcarConcluida = (req, res) => {
   tarefa.status = "concluída";
   res.json(tarefa);
 };
+
+const { usuarios } = require('./usuarioController');
+
+exports.listarTarefasUsuario = (req, res) => {
+  const usuarioId = parseInt(req.params.id);
+  const usuario = usuarios.find(u => u.id === usuarioId);
+
+  if (!usuario) {
+    return res.status(404).json({ mensagem: "Usuário não encontrado" });
+  }
+
+  const tarefasUsuario = tarefas.filter(t => t.usuarioId === usuarioId);
+  res.json(tarefasUsuario);
+};
+
+

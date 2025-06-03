@@ -2,11 +2,14 @@ let usuarios = [
   { id: 1, nome: "João Silva", email: "joao@email.com" },
   { id: 2, nome: "Maria Souza", email: "maria@email.com" }
 ];
+exports.usuarios = usuarios
 
 let tarefas = [
   { id: 1, titulo: "Estudar Node", descricao: "Praticar REST APIs", status: "pendente", usuarioId: 1 },
   { id: 2, titulo: "Fazer compras", descricao: "Comprar itens do mês", status: "concluída", usuarioId: 2 }
 ];
+
+exports.tarefas = tarefas
 
 exports.listarUsuarios = (req, res) => {
   res.json(usuarios);
@@ -46,14 +49,15 @@ exports.deletarUsuario = (req, res) => {
   res.status(204).send();
 };
 
+
 exports.listarTarefasUsuario = (req, res) => {
   const usuarioId = parseInt(req.params.id);
   const usuario = usuarios.find(u => u.id === usuarioId);
-  
+
   if (!usuario) {
     return res.status(404).json({ mensagem: "Usuário não encontrado" });
   }
-  
+
   const tarefasUsuario = tarefas.filter(t => t.usuarioId === usuarioId);
   res.json(tarefasUsuario);
-};
+}

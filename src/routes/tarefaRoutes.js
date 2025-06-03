@@ -8,5 +8,6 @@ router.get('/:id', tarefaController.buscarTarefa);
 router.put('/:id', tarefaController.atualizarTarefa);
 router.delete('/:id', tarefaController.deletarTarefa);
 router.patch('/:id/concluir', tarefaController.marcarConcluida);
+router.get('/usuario/:id', tarefaController.listarTarefasUsuario);
 
 module.exports = router;
