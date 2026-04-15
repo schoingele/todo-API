@@ -1,4 +1,3 @@
-
 # Todo API Node Puro
 
 ## Descrição
@@ -79,5 +78,3 @@ npm test
 5. Você pode rodar queries SQL diretamente, inserir, editar ou deletar dados pela interface gráfica.
 
 ---
-
-Se quiser, posso te ajudar com comandos específicos para rodar no pgAdmin, só pedir!
