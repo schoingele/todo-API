@@ -3,7 +3,7 @@
 
 ## Descrição
 
-API RESTful implementada em Node.js puro (sem frameworks como Express), com persistência em PostgreSQL.  
+API RESTful implementada em Node.js, com persistência em PostgreSQL.  
 Contém duas entidades: `User` e `Task`, com relacionamento de um-para-muitos (cada task pertence a um user).
 
 ## Requisitos
